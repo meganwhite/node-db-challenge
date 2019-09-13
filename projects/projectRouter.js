@@ -12,4 +12,16 @@ router.get('/',(req,res) => {
     })
 });
 
+router.post('/', (req,res) => {
+    const projectData = req.body;
+
+    Projects.add(projectData)
+    .then(project => {
+        res.status(201).json(project);
+    })
+    .catch(error => {
+        res.status(500).json({message: "Failed to create new project"})
+    })
+})
+
 module.exports = router;

@@ -1,7 +1,8 @@
 const db = require('../data/db-config.js')
 
 module.exports = {
-    find
+    find,
+    add
 };
 
 function find() {
@@ -11,3 +12,10 @@ function find() {
     })
 };
 
+function add(project) {
+    return db('projects')
+    .insert(project)
+    .then(([id]) => {
+        return find()
+    })
+}
