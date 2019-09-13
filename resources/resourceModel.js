@@ -6,10 +6,10 @@ module.exports = {
 }
 
 function findResources() {
-    return db("resources")
+    return db("resources1")
 }
 
 function addResource(resource) {
-    return db("resources").insert(resource)
+    return db("resources1").insert(resource)
 
 }

@@ -6,8 +6,8 @@ module.exports = {
 }
 
 function findTasks() {
-    return db("tasks as t")
-    .join("projects as p","p.id",'=',"t.project_id")
+    return db("tasks1 as t")
+    .join("projects1 as p","p.id",'=',"t.project_id")
     .select(
         "t.id",
         "t.project_id",
@@ -20,6 +20,6 @@ function findTasks() {
 };
 
 function addTask(task) {
-    return db("tasks")
+    return db("tasks1")
     .insert(task)
 }

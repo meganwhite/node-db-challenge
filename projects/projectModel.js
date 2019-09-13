@@ -6,7 +6,7 @@ module.exports = {
 };
 
 function find() {
-    return db('projects')
+    return db('projects1')
     .then(projects => {
         return projects.map(project => {
             project.completed = project.completed ? true : false;
@@ -16,7 +16,7 @@ function find() {
 };
 
 function add(project) {
-    return db('projects')
+    return db('projects1')
     .insert(project)
     .then(() => {
         return find()
