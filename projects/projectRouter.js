@@ -39,8 +39,17 @@ router.get('/:id/tasks',(req,res) => {
     .catch(error => {
         res.status(500).json({message: "Failed to retrieve tasks"})
     });
+})
 
-
+router.post('/:id/tasks', (req,res) => {
+    const taskData = req.body;
+    Projects.addTask(taskData)
+    .then(task => {
+        res.status(201).json(task)
+    })
+    .catch(error => {
+        res.status(400).json({message:"Failed to create new task"})
+    })
 })
 
 module.exports = router;

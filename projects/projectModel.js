@@ -3,7 +3,8 @@ const db = require('../data/db-config.js')
 module.exports = {
     find,
     add,
-    findTasks
+    findTasks,
+    addTask
 };
 
 function find() {
@@ -37,3 +38,11 @@ function findTasks(id) {
     )
     .where("p.id",id)
 };
+
+function addTask(task) {
+    return db('tasks')
+    .insert(task)
+    .then((project_id) => {
+        return findTasks(project_id)
+    })
+}
